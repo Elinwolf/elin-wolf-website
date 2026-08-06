@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://elinwolf.com/</loc>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <image:image><image:loc>https://elinwolf.com/assets/images/elin-hero.webp</image:loc></image:image>
+    <image:image><image:loc>https://elinwolf.com/assets/images/portrait-candle-staircase-optimized.jpg</image:loc></image:image>
+    <image:image><image:loc>https://elinwolf.com/assets/images/performance-wedding.webp</image:loc></image:image>
+    <image:image><image:loc>https://elinwolf.com/assets/images/performance-sofi.webp</image:loc></image:image>
+    <image:image><image:loc>https://elinwolf.com/assets/images/performance-gala.webp</image:loc></image:image>
+    <image:image><image:loc>https://elinwolf.com/assets/images/performance-celebration.webp</image:loc></image:image>
+    <image:image><image:loc>https://elinwolf.com/assets/images/performance-private.webp</image:loc></image:image>
+    <image:image><image:loc>https://elinwolf.com/assets/images/performance-red-closeup-optimized.jpg</image:loc></image:image>
+    <image:image><image:loc>https://elinwolf.com/assets/images/proposal-ocean.jpg</image:loc></image:image>
+    <image:image><image:loc>https://elinwolf.com/assets/images/elin-portrait.webp</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://elinwolf.com/services.html</loc>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://elinwolf.com/assets/images/elin-portrait.webp</image:loc></image:image>
+    <image:image><image:loc>https://elinwolf.com/assets/images/performance-sofi.webp</image:loc></image:image>
+    <image:image><image:loc>https://elinwolf.com/assets/images/performance-private.webp</image:loc></image:image>
+    <image:image><image:loc>https://elinwolf.com/assets/images/proposal-ocean.jpg</image:loc></image:image>
+  </url>
+</urlset>
