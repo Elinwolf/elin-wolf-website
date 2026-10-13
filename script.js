@@ -11,13 +11,29 @@ document.querySelectorAll('.nav a').forEach(link => link.addEventListener('click
   toggle.setAttribute('aria-expanded', 'false');
 }));
 
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) entry.target.classList.add('visible');
-  });
-}, { threshold: 0.12 });
+// Content stays visible unless the reveal controller is ready.
+let revealObserver;
+const disableReveals = () => {
+  document.documentElement.classList.remove('reveal-ready');
+  if (revealObserver) revealObserver.disconnect();
+};
 
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+try {
+  revealObserver = new IntersectionObserver(entries => {
+    try {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    } catch (error) {
+      disableReveals();
+    }
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+  document.documentElement.classList.add('reveal-ready');
+} catch (error) {
+  disableReveals();
+}
 document.getElementById('year').textContent = new Date().getFullYear();
 
 const inquiryForm = document.getElementById('inquiry-form');

@@ -214,8 +214,9 @@ footer { background:#0e0d0b; color:rgba(255,255,255,.65); text-align:center; pad
 .footer-brand { font-family:'Cormorant Garamond',serif; font-size:37px; color:white; }
 .footer-brand span { color:var(--champagne); }
 .footer-links { display:flex; justify-content:center; gap:24px; margin:25px 0; font-size:12px; text-transform:uppercase; letter-spacing:.12em; }
-.reveal { opacity:0; transform:translateY(25px); transition:.8s ease; }
-.reveal.visible { opacity:1; transform:none; }
+.reveal { opacity:1; transform:none; }
+.reveal-ready .reveal { opacity:0; transform:translateY(25px); transition:.8s ease; }
+.reveal-ready .reveal.visible { opacity:1; transform:none; }
 @media (max-width: 980px) {
   .menu-toggle { display:block; }
   .nav { display:none; position:absolute; top:78px; left:0; right:0; padding:25px 5vw; background:var(--ivory); flex-direction:column; align-items:flex-start; }
