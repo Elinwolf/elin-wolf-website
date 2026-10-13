@@ -26,6 +26,7 @@ if (inquiryForm) inquiryForm.addEventListener('submit', async event => {
   event.preventDefault();
   const form = event.currentTarget;
   const button = form.querySelector('button[type="submit"]');
+  if (button.disabled) return;
   const status = document.getElementById('form-status');
   const originalButtonText = button.textContent;
 
@@ -35,18 +36,40 @@ if (inquiryForm) inquiryForm.addEventListener('submit', async event => {
   status.textContent = 'Sending your inquiry…';
 
   try {
+    const formData = new FormData(form);
+    // Only predefined categories may be sent to Analytics, never free-text fields.
+    const eventTypes = new Map([
+      ['Wedding', 'wedding'],
+      ['Corporate Event', 'corporate'],
+      ['Private Event', 'private_event'],
+      ['Proposal', 'proposal'],
+      ['Other', 'other']
+    ]);
+    const eventType = eventTypes.get(formData.get('type')) || 'other';
     const response = await fetch(form.action, {
       method: 'POST',
-      body: new FormData(form),
+      body: formData,
       headers: { Accept: 'application/json' }
     });
 
     if (!response.ok) throw new Error('Unable to submit inquiry');
+    const result = await response.json();
+    if (result?.success !== true && result?.success !== 'true') {
+      throw new Error('FormSubmit did not confirm success');
+    }
 
     form.reset();
     status.className = 'form-note form-success';
     status.textContent = 'Thank you! Your inquiry has been sent. Elin will be in touch soon.';
     button.textContent = 'Inquiry Sent';
+    // Analytics must never interrupt a successful inquiry or trigger a retry.
+    try {
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'generate_lead', { event_type: eventType });
+      }
+    } catch (analyticsError) {
+      // Keep the successful form state if Analytics is unavailable.
+    }
   } catch (error) {
     status.className = 'form-note form-error';
     status.textContent = 'Your inquiry could not be sent. Please try again or email music.by.elink@gmail.com.';
