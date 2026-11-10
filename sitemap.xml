@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://elinwolf.com/</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <image:image><image:loc>https://elinwolf.com/assets/images/elin-hero.webp</image:loc></image:image>
@@ -19,7 +19,7 @@
   </url>
   <url>
     <loc>https://elinwolf.com/services.html</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image><image:loc>https://elinwolf.com/assets/images/elin-portrait.webp</image:loc></image:image>
