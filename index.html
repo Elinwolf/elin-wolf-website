@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BD74DCQGRV"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-BD74DCQGRV');
-  </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Wedding &amp; Event Violinist Los Angeles | Elin Wolf</title>
@@ -75,8 +66,23 @@
     ]
   }
   </script>
+  <script src="consent.js" defer></script>
 </head>
 <body>
+  <section class="consent-panel" id="consent-panel" aria-labelledby="consent-title" hidden>
+    <h2 id="consent-title">Your privacy choices</h2>
+    <p>Optional Google Analytics measures visits and successful inquiries. It stays off until you accept. Your inquiry form works either way.</p>
+    <p><a href="privacy.html">Read our privacy policy</a>. Change or withdraw consent anytime in the footer.</p>
+    <p id="consent-status" role="status"></p>
+    <label class="consent-option"><input type="checkbox" data-consent-advertising aria-describedby="advertising-purpose" /><span>Also allow advertising measurement (optional)</span></label>
+    <p id="advertising-purpose">Allow Google advertising cookies and sharing of visit, ad-click and inquiry data with our Google Ads account to measure ads. No personalized ads or remarketing.</p>
+    <div class="consent-actions">
+      <button type="button" data-consent-accept>Accept selected</button>
+      <button type="button" data-consent-reject>Reject all</button>
+    </div>
+    <button class="consent-close" type="button" data-consent-close>Close without changing</button>
+  </section>
+
   <header class="site-header" id="top">
     <a class="brand" href="#top" aria-label="Elin Wolf home">
       <span class="brand-mark">EW</span>
@@ -323,13 +329,13 @@
         <label>Email<input type="email" name="email" required /></label>
         <div class="form-row">
           <label>Event date<input type="date" name="date" /></label>
-          <label>Event type<select name="type"><option>Wedding</option><option>Corporate Event</option><option>Private Event</option><option>Proposal</option><option>Other</option></select></label>
+          <label>Event type<select name="type" required><option value="" disabled selected>Select event type</option><option>Wedding</option><option>Corporate Event</option><option>Private Event</option><option>Proposal</option><option>Other</option></select></label>
         </div>
         <label>Venue or location<input type="text" name="location" /></label>
         <label>Tell me about your event<textarea name="message" rows="5" required></textarea></label>
         <button class="button button-primary" type="submit">Request Availability</button>
         <p class="form-note" id="form-status" role="status" aria-live="polite">Your inquiry will be sent directly from this page.</p>
-        <p class="form-privacy">Your information is used only to respond to your inquiry and is never shared for marketing purposes.</p>
+        <p class="form-privacy">Your inquiry details are sent through FormSubmit so Elin can respond. <a class="text-link" href="privacy.html">Privacy policy</a>.</p>
       </form>
     </section>
   </main>
@@ -337,7 +343,7 @@
   <footer>
     <div class="footer-brand">Elin Wolf <span>Violin</span></div>
     <p>Luxury wedding and event violinist serving Los Angeles and Southern California.</p>
-    <div class="footer-links"><a href="#services">Services</a><a href="#about">About</a><a href="#portfolio">Portfolio</a><a href="#contact">Contact</a><a href="https://www.instagram.com/elinwolfviolin/" target="_blank" rel="noopener">Instagram</a><a href="https://www.youtube.com/@elinwolf" target="_blank" rel="noopener">YouTube</a></div>
+    <div class="footer-links"><a href="#services">Services</a><a href="#about">About</a><a href="#portfolio">Portfolio</a><a href="#contact">Contact</a><a href="https://www.instagram.com/elinwolfviolin/" target="_blank" rel="noopener">Instagram</a><a href="https://www.youtube.com/@elinwolf" target="_blank" rel="noopener">YouTube</a><a href="privacy.html">Privacy</a><button class="privacy-settings" type="button" data-consent-settings hidden>Privacy choices</button></div>
     <small>© <span id="year"></span> Elin Wolf Violin. All rights reserved.</small>
   </footer>
 

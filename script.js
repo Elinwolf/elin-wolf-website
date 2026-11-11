@@ -38,13 +38,25 @@ document.getElementById('year').textContent = new Date().getFullYear();
 
 const inquiryForm = document.getElementById('inquiry-form');
 
+// Explicit booking intent selects a category; generic links ask the visitor to choose.
+// No inference from advertising parameters, and the visitor can always change it.
+if (inquiryForm) {
+  const eventTypeSelect = inquiryForm.elements.namedItem('type');
+  document.querySelectorAll('a[href="#contact"]').forEach(link => {
+    link.addEventListener('click', () => {
+      eventTypeSelect.value = link.dataset.eventType || '';
+    });
+  });
+}
+
 if (inquiryForm) inquiryForm.addEventListener('submit', async event => {
   event.preventDefault();
   const form = event.currentTarget;
   const button = form.querySelector('button[type="submit"]');
-  if (button.disabled) return;
+  if (button.disabled || !form.reportValidity()) return;
   const status = document.getElementById('form-status');
   const originalButtonText = button.textContent;
+  const consentToken = window.elinConsent?.snapshot() ?? null;
 
   button.disabled = true;
   button.textContent = 'Sending…';
@@ -80,7 +92,7 @@ if (inquiryForm) inquiryForm.addEventListener('submit', async event => {
     button.textContent = 'Inquiry Sent';
     // Analytics must never interrupt a successful inquiry or trigger a retry.
     try {
-      if (typeof window.gtag === 'function') {
+      if (window.elinConsent?.allows(consentToken) && typeof window.gtag === 'function') {
         window.gtag('event', 'generate_lead', { event_type: eventType });
       }
     } catch (analyticsError) {

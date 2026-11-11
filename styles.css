@@ -292,3 +292,28 @@ footer { background:#0e0d0b; color:rgba(255,255,255,.65); text-align:center; pad
   html { scroll-behavior:auto; }
   .reveal, .reveal-ready .reveal, .reveal-ready .reveal.visible { opacity:1; transform:none; transition:none; }
 }
+
+/* Privacy draft: reuse the existing palette and typography. */
+.privacy-page { max-width:860px; margin:0 auto; padding-top:130px; }
+.privacy-page h1 { font-family:'Cormorant Garamond',serif; font-size:clamp(40px,6vw,64px); line-height:1.1; }
+.privacy-page h2 { font-size:clamp(28px,4vw,36px); margin-top:36px; }
+.privacy-page a { text-decoration:underline; text-underline-offset:3px; overflow-wrap:anywhere; }
+
+.form-privacy a { color:var(--champagne); text-decoration:underline; text-underline-offset:3px; }
+
+/* Equal-weight choices; no overlay or forced consent to access the form. */
+.privacy-settings { font:inherit; color:inherit; background:none; border:0; padding:0; text-transform:inherit; letter-spacing:inherit; cursor:pointer; text-decoration:underline; }
+.consent-panel { position:fixed; z-index:100; bottom:16px; right:16px; width:min(520px, calc(100% - 32px)); max-height:75vh; overflow:auto; padding:24px; background:var(--ivory); color:var(--ink); border:1px solid var(--gold); box-shadow:var(--shadow); }
+.consent-panel[hidden], .privacy-settings[hidden] { display:none; }
+.consent-panel h2 { font-family:'Cormorant Garamond',serif; font-size:30px; line-height:1.15; margin:0 0 12px; }
+.consent-panel p { font-size:13px; line-height:1.6; margin:10px 0; }
+.consent-panel a, .consent-close { text-decoration:underline; text-underline-offset:3px; }
+.consent-actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:16px; }
+.consent-actions button { flex:1 1 120px; min-height:44px; padding:10px; border:1px solid var(--text-gold); background:var(--ivory); color:var(--ink); font:inherit; font-size:13px; cursor:pointer; }
+.consent-actions button:hover { background:var(--cream); }
+.consent-close { min-height:44px; padding:10px 0 0; border:0; background:none; color:var(--ink); font:inherit; font-size:12px; cursor:pointer; }
+.consent-panel :focus-visible, .privacy-settings:focus-visible { outline:2px solid var(--text-gold); outline-offset:3px; }
+.footer-links { flex-wrap:wrap; }
+
+.consent-option { display:flex; align-items:center; gap:10px; min-height:44px; font-size:13px; line-height:1.5; cursor:pointer; }
+.consent-option input { flex:0 0 20px; width:20px; height:20px; accent-color:var(--text-gold); }
